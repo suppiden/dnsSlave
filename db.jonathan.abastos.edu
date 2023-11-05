@@ -1,0 +1,27 @@
+; BIND data file for jonathan.abastos.edu domain
+$TTL    604800
+@       IN      SOA     jonathan.abastos.edu. root.jonathan.abastos.edu. (
+                              6         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+
+@       IN      NS      ns.jonathan.abastos.edu.
+ns      IN      A       172.17.0.3
+
+@       IN      A       172.17.0.3
+pc1     IN      A       172.17.0.3
+
+; For the new mail server
+mail    IN      A       192.168.1.133
+
+; For alias from ns2 to pc1 (This is hypothetical since I don't see an ns2 in your original file.
+; You can omit it if you don't have an ns2)
+ns2     IN      CNAME   pc1.jonathan.abastos.edu.
+
+; Remove entries for 127.0.0.1 and ::1 unless you have a specific reason for them.
+; @       IN      A       127.0.0.1
+; @       IN      AAAA    ::1
+pc2     IN      A       172.17.0.4    ; Assuming pc2 is the slave DNS, if not, adjust accordingl

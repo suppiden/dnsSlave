@@ -1,0 +1,16 @@
+zone "jonathan.abastos.edu"{
+        type master;
+        file "/etc/bind/db.jonathan.abastos.edu";
+          allow-transfer { 172.17.0.4; };
+          also-notify {172.17.0.4;};
+
+};
+zone "17.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.172.17.rev";
+
+};
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
